@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+  xsi:schemaLocation="
+  						http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  						http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+  					 ">
 
   <!-- regular spring configuration file defining the beans for this
        bundle. We've kept the osgi definitions in a separate 
        configuration file so that this file can easily be used
        for integration testing outside of an OSGi environment -->
 
-  <bean name="myBean" class="com.brush.up.java.servicemix.rest.cxf.spring.impl.BeanImpl" />
+
+<jaxrs:server id="customerService" address="/cust">
+	<jaxrs:serviceBeans>
+		<ref bean="customerRequestHandler" />
+	</jaxrs:serviceBeans>
+</jaxrs:server>
+
+<bean id="customerRequestHandler" class="com.brush.up.java.servicemix.rest.cxf.spring.webservice.CustomerService"/>
+<bean name="myBean" class="com.brush.up.java.servicemix.rest.cxf.spring.impl.BeanImpl" />
 
 </beans>

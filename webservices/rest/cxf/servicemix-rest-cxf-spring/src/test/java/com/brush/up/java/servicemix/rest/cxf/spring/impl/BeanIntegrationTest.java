@@ -1,26 +1,35 @@
 package com.brush.up.java.servicemix.rest.cxf.spring.impl;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import com.brush.up.java.servicemix.rest.cxf.spring.Bean;
-import org.springframework.test.AbstractDependencyInjectionSpringContextTests;
+import com.brush.up.java.servicemix.rest.cxf.spring.webservice.CustomerService;
+import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Customer;
 
 /**
  * Local integration test (outside of OSGi).
  * @see BeanOsgiIntegrationTest for integration test inside OSGi.
  */
-public class BeanIntegrationTest extends AbstractDependencyInjectionSpringContextTests {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/META-INF/spring/bundle-context.xml")
+public class BeanIntegrationTest  {
 
 	private Bean myBean;
 	
-	protected String[] getConfigLocations() {
-	  return new String[] {"META-INF/spring/bundle-context.xml"};
-	}
+	@Autowired
+	private CustomerService customerRequestHandler;
 	
-	public void setBean(Bean bean) {
-	  this.myBean = bean;
-	}
+	@Test
+    public void testCustomerService() {
+		Customer customer = customerRequestHandler.getCustomer("100");
+		Assert.assertNotNull(customer);
+    }
 	
-	public void testBeanIsABean() {
-	  assertTrue(this.myBean.isABean());
-	}
 
 }
+
