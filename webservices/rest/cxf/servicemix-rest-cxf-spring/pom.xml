@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.brush.up.java</groupId>
+	<artifactId>servicemix-rest-cxf-spring</artifactId>
+	<packaging>bundle</packaging>
+	<name>Spring OSGi Bundle</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<url>http://www.springframework.org/osgi</url>
+
+	<properties>
+		<jaxb.api.version>2.2</jaxb.api.version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.servicemix.specs</groupId>
+			<artifactId>org.apache.servicemix.specs.jsr339-api-2.0</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.specs</groupId>
+			<artifactId>org.apache.servicemix.specs.jaxb-api-${jaxb.api.version}
+			</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.commons-httpclient
+			</artifactId>
+			<version>3.1_7</version>
+		</dependency>
+
+		<!-- test scoped dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.17.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.2.17.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.17.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- for packaging as an OSGi bundle, we use the maven-bundle-plugin -->
+
+	<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more 
+		info -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>1.0.0</version>
+				<configuration>
+					<manifestLocation>META-INF</manifestLocation>
+					<instructions>
+						<Export-Package>!com.brush.up.java.servicemix.rest.cxf.spring.impl,com.brush.up.java.servicemix.rest.cxf.spring*
+						</Export-Package>
+						<Import-Package>*</Import-Package>
+						<!-- add ,plugin.xml if it's present i.e. src/main/resources,plugin.xml -->
+						<Include-Resource>src/main/resources</Include-Resource>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
