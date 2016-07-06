@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
+import com.brush.up.java.servicemix.rest.cxf.spring.webservice.exception.CustomerNotFoundException;
 import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Customer;
 import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Order;
 
@@ -48,26 +50,26 @@ public class CustomerService {
 				+ " for customer " + customerNumber
 				+ " through getOrder method");
 		long customerNo = Long.parseLong(customerNumber);
-		int OrderNo = Integer.parseInt(orderNumber);
+		int orderNo = Integer.parseInt(orderNumber);
 
 		Customer c = customers.get(customerNo);
 
 		if (null == c) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
+			throw new CustomerNotFoundException("Customer doesn't exist");
 		}
 
 		Order responseOrder = null;
 
 		List<Order> orders = c.getOrders();
 		for (Order order : orders) {
-			if (order.getNumber() == OrderNo) {
+			if (order.getNumber() == orderNo) {
 				responseOrder = order;
 				break;
 			}
 		}
 
 		if (responseOrder == null) {
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
+			throw new NotFoundException("Order " + orderNo + " not found for customer " +customerNo);
 		} else {
 			return responseOrder;
 		}

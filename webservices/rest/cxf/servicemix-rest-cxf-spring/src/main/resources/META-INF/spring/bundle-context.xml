@@ -17,6 +17,10 @@
 	<jaxrs:serviceBeans>
 		<ref bean="customerRequestHandler" />
 	</jaxrs:serviceBeans>
+	 <jaxrs:providers>
+            <!-- bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" /-->
+            <bean class="com.brush.up.java.servicemix.rest.cxf.spring.webservice.exception.mapper.CustomerNotFoundMapper" />
+        </jaxrs:providers>
 </jaxrs:server>
 
 <bean id="customerRequestHandler" class="com.brush.up.java.servicemix.rest.cxf.spring.webservice.CustomerService"/>
