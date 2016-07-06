@@ -84,7 +84,7 @@
 				<configuration>
 					<manifestLocation>META-INF</manifestLocation>
 					<instructions>
-						<Export-Package>!com.brush.up.java.servicemix.rest.cxf.spring.impl,com.brush.up.java.servicemix.rest.cxf.spring*
+						<Export-Package>com.brush.up.java.servicemix.rest.cxf.spring.impl,com.brush.up.java.servicemix.rest.cxf.spring*
 						</Export-Package>
 						<Import-Package>*</Import-Package>
 						<!-- add ,plugin.xml if it's present i.e. src/main/resources,plugin.xml -->

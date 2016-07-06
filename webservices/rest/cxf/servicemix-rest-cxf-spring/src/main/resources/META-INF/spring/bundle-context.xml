@@ -13,7 +13,7 @@
        for integration testing outside of an OSGi environment -->
 
 
-<jaxrs:server id="customerService" address="/cust">
+<jaxrs:server id="customerService" address="/exposedServices">
 	<jaxrs:serviceBeans>
 		<ref bean="customerRequestHandler" />
 	</jaxrs:serviceBeans>
