@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.brush.up.java.servicemix.rest.cxf.spring.Bean;
 import com.brush.up.java.servicemix.rest.cxf.spring.webservice.CustomerService;
-import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Customer;
+import com.brush.up.java.webservices.data.model.Customer;
 
 /**
  * Local integration test (outside of OSGi).

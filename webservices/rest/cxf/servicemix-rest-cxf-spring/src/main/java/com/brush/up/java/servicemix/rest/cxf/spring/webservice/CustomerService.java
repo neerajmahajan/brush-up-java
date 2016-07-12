@@ -13,8 +13,8 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
 import com.brush.up.java.servicemix.rest.cxf.spring.webservice.exception.CustomerNotFoundException;
-import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Customer;
-import com.brush.up.java.servicemix.rest.cxf.spring.webservice.model.Order;
+import com.brush.up.java.webservices.data.model.Customer;
+import com.brush.up.java.webservices.data.model.Order;
 
 @Path("/customerservice/")
 public class CustomerService {
