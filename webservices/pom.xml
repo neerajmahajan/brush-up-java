@@ -12,6 +12,7 @@
         <module>webservices-data-model</module>    
 		<module>rest/cxf/servicemix-rest-cxf-spring</module>		
 		<module>soap/plain-java</module>
+		<module>soap/cxf/servicemix-soap-cxf-spring</module>
     </modules>
 
     <build>
