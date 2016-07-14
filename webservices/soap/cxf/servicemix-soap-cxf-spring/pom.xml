@@ -12,7 +12,7 @@
 	<groupId>com.brush.up.java</groupId>
 	<artifactId>servicemix-soap-cxf-spring</artifactId>
 	<packaging>bundle</packaging>
-	<name>Spring SOAP REST OSGi Bundle</name>
+	<name>Spring CXF SOAP OSGi Bundle</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<url>http://www.springframework.org/osgi</url>
 
@@ -52,13 +52,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>3.2.17.RELEASE</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>3.2.17.RELEASE</version>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.brush.up.java</groupId>
@@ -67,11 +65,6 @@
 		</dependency>
 
 	</dependencies>
-
-	<!-- for packaging as an OSGi bundle, we use the maven-bundle-plugin -->
-
-	<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more 
-		info -->
 	<build>
 		<plugins>
 			<plugin>
