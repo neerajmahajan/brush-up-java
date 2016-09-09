@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3> Login Successful </h3>
+<jsp:useBean id="user" class="com.neeraj.retail.online.store.dto.User" scope="request"></jsp:useBean>
+
+<h3> Welcome  <jsp:getProperty property="firstName" name="user"/></h3>
+
 </body>
 </html>

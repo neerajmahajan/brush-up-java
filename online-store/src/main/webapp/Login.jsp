@@ -10,7 +10,7 @@
 <form action="login" method="post">
 	<br>User Id : <input type="text" name="userId" />
 	<br>Password  : <input type="password" name="password" />
-	<br><input type="submit" value="Login" />
+	<br><input type="submit" value="SignIn" />
 	<br> New User ? <input type="button" value="signUp" onclick="window.location='SignUp.jsp'"/> 
 
 </form> 
