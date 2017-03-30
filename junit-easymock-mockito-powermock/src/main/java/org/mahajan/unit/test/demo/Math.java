@@ -24,5 +24,19 @@ public class Math {
 		}
 		return a/b;
 	}
+	
+	public float average(int[] intArray){
+		
+		int sum=0;
+		if(intArray == null) {
+			throw new RuntimeException("Array Cannot be mepty");
+		}
+		
+		for (int i : intArray) {
+			sum = sum+ i;
+		}
+		
+		return sum/intArray.length;
+	}
 
 }
