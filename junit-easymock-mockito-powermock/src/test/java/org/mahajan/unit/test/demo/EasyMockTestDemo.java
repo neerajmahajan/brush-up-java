@@ -8,6 +8,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.easymock.EasyMock;
 import org.junit.Test;
+
+//For reference read http://easymock.org/user-guide.html
+
 public class EasyMockTestDemo {
 	
 	private ClassUnderTest classUnderTest;
@@ -86,7 +89,8 @@ public class EasyMockTestDemo {
 		Math mathMock = strictMock(Math.class);
 		
 		EasyMock.expect(mathMock.average(isA(int[].class))).andReturn(2.0F);
-		EasyMock.expectLastCall();
+		EasyMock.expectLastCall().times(1);
+		EasyMock.checkOrder(mathMock, true);
 		EasyMock.replay(mathMock);
 	
 		classUnderTest = new ClassUnderTest();
