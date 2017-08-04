@@ -1,0 +1,1 @@
+insert into customer (first_name,last_name,dob) values('customer1','lastName1','15/11/87');

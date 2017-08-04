@@ -15,6 +15,8 @@ public class Customer {
 	private String lastName;
 	private String dob;
 	
+	
+	//@ManytoOne
 	protected Customer() {}
 	
 	public Customer(String firstName, String lastName,String dob) {
