@@ -132,7 +132,11 @@ public class EmpoyeeTest {
 		
 		makeRainbow.ifPresent(e -> System.out.println(e.getName()));
 		
+		// Supplier Example
 		
+		Supplier<Integer> integerSupplier = () -> 5;
+		
+		System.out.println(integerSupplier.get());
 		
 
 	}
